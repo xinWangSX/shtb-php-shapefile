@@ -26,61 +26,62 @@ abstract class Shapefile
 {
     /////////////////////////////// PUBLIC CONSTANTS ///////////////////////////////
     /** Actions */
-    const ACTION_IGNORE = 0;
-    const ACTION_CHECK = 1;
-    const ACTION_FORCE = 2;
-
+    const ACTION_IGNORE     = 0;
+    const ACTION_CHECK      = 1;
+    const ACTION_FORCE      = 2;
+    
     /** DBF fields types */
-    const DBF_TYPE_CHAR = 'C';
-    const DBF_TYPE_DATE = 'D';
-    const DBF_TYPE_LOGICAL = 'L';
-    const DBF_TYPE_MEMO = 'M';
-    const DBF_TYPE_NUMERIC = 'N';
-    const DBF_TYPE_FLOAT = 'F';
-
+    const DBF_TYPE_CHAR     = 'C';
+    const DBF_TYPE_DATE     = 'D';
+    const DBF_TYPE_LOGICAL  = 'L';
+    const DBF_TYPE_MEMO     = 'M';
+    const DBF_TYPE_NUMERIC  = 'N';
+    const DBF_TYPE_FLOAT    = 'F';
+    
     /** File types */
-    const FILE_SHP = 'shp';
-    const FILE_SHX = 'shx';
-    const FILE_DBF = 'dbf';
-    const FILE_DBT = 'dbt';
-    const FILE_PRJ = 'prj';
-    const FILE_CPG = 'cpg';
-
+    const FILE_SHP  = 'shp';
+    const FILE_SHX  = 'shx';
+    const FILE_DBF  = 'dbf';
+    const FILE_DBT  = 'dbt';
+    const FILE_PRJ  = 'prj';
+    const FILE_CPG  = 'cpg';
+    
     /** Return formats  */
     const FORMAT_INT = 0;
     const FORMAT_STR = 1;
-
+    
     /** File modes */
-    const MODE_PRESERVE = 0;
-    const MODE_OVERWRITE = 1;
-    const MODE_APPEND = 2;
-
+    const MODE_PRESERVE     = 0;
+    const MODE_OVERWRITE    = 1;
+    const MODE_APPEND       = 2;
+    
     /** Polygon orientations */
-    const ORIENTATION_CLOCKWISE = 0;
-    const ORIENTATION_COUNTERCLOCKWISE = 1;
-    const ORIENTATION_UNCHANGED = 2;
-
+    const ORIENTATION_CLOCKWISE         = 0;
+    const ORIENTATION_COUNTERCLOCKWISE  = 1;
+    const ORIENTATION_UNCHANGED         = 2;
+    
     /** Shape types */
-    const SHAPE_TYPE_NULL = 0;
-    const SHAPE_TYPE_POINT = 1;
-    const SHAPE_TYPE_POLYLINE = 3;
-    const SHAPE_TYPE_POLYGON = 5;
-    const SHAPE_TYPE_MULTIPOINT = 8;
-    const SHAPE_TYPE_POINTZ = 11;
-    const SHAPE_TYPE_POLYLINEZ = 13;
-    const SHAPE_TYPE_POLYGONZ = 15;
-    const SHAPE_TYPE_MULTIPOINTZ = 18;
-    const SHAPE_TYPE_POINTM = 21;
-    const SHAPE_TYPE_POLYLINEM = 23;
-    const SHAPE_TYPE_POLYGONM = 25;
-    const SHAPE_TYPE_MULTIPOINTM = 28;
-
+    const SHAPE_TYPE_NULL           = 0;
+    const SHAPE_TYPE_POINT          = 1;
+    const SHAPE_TYPE_POLYLINE       = 3;
+    const SHAPE_TYPE_POLYGON        = 5;
+    const SHAPE_TYPE_MULTIPOINT     = 8;
+    const SHAPE_TYPE_POINTZ         = 11;
+    const SHAPE_TYPE_POLYLINEZ      = 13;
+    const SHAPE_TYPE_POLYGONZ       = 15;
+    const SHAPE_TYPE_MULTIPOINTZ    = 18;
+    const SHAPE_TYPE_POINTM         = 21;
+    const SHAPE_TYPE_POLYLINEM      = 23;
+    const SHAPE_TYPE_POLYGONM       = 25;
+    const SHAPE_TYPE_MULTIPOINTM    = 28;
+    
     /** Misc */
-    const EOF = 0;
+    const EOF       = 0;
     const UNDEFINED = null;
-    const UNKNOWN = -1;
-
-
+    const UNKNOWN   = -1;
+    
+    
+    
     /////////////////////////////// OPTIONS ///////////////////////////////
     /**
      * Number of records to keep into buffer before writing them.
@@ -90,7 +91,7 @@ abstract class Shapefile
      */
     const OPTION_BUFFERED_RECORDS = 'OPTION_BUFFERED_RECORDS';
     const OPTION_BUFFERED_RECORDS_DEFAULT = 10;
-
+    
     /**
      * Converts from input charset to UTF-8 all strings read from DBF files.
      * ShapefileWriter
@@ -98,7 +99,7 @@ abstract class Shapefile
      */
     const OPTION_CPG_ENABLE_FOR_DEFAULT_CHARSET = 'OPTION_CPG_ENABLE_FOR_DEFAULT_CHARSET';
     const OPTION_CPG_ENABLE_FOR_DEFAULT_CHARSET_DEFAULT = false;
-
+    
     /**
      * Allows a maximum field size of 255 bytes instead of 254 bytes in DBF files.
      * ShapefileReader and ShapefileWriter
@@ -106,7 +107,7 @@ abstract class Shapefile
      */
     const OPTION_DBF_ALLOW_FIELD_SIZE_255 = 'OPTION_DBF_ALLOW_FIELD_SIZE_255';
     const OPTION_DBF_ALLOW_FIELD_SIZE_255_DEFAULT = false;
-
+    
     /**
      * Converts from input charset to UTF-8 all strings read from DBF files.
      * ShapefileReader
@@ -114,7 +115,7 @@ abstract class Shapefile
      */
     const OPTION_DBF_CONVERT_TO_UTF8 = 'OPTION_DBF_CONVERT_TO_UTF8';
     const OPTION_DBF_CONVERT_TO_UTF8_DEFAULT = true;
-
+    
     /**
      * Forces all capitals field names in DBF files.
      * ShapefileReader and ShapefileWriter
@@ -122,7 +123,7 @@ abstract class Shapefile
      */
     const OPTION_DBF_FORCE_ALL_CAPS = 'OPTION_DBF_FORCE_ALL_CAPS';
     const OPTION_DBF_FORCE_ALL_CAPS_DEFAULT = true;
-
+    
     /**
      * Ignored fields in DBF file.
      * An array of fields to ignore when reading the DBF file.
@@ -131,7 +132,7 @@ abstract class Shapefile
      */
     const OPTION_DBF_IGNORED_FIELDS = 'OPTION_DBF_IGNORED_FIELDS';
     const OPTION_DBF_IGNORED_FIELDS_DEFAULT = null;
-
+    
     /**
      * Defines a null padding character to represent null values in DBF files.
      * ShapefileReader and ShapefileWriter
@@ -139,7 +140,7 @@ abstract class Shapefile
      */
     const OPTION_DBF_NULL_PADDING_CHAR = 'OPTION_DBF_NULL_PADDING_CHAR';
     const OPTION_DBF_NULL_PADDING_CHAR_DEFAULT = null;
-
+    
     /**
      * Returns a null value for invalid dates when reading DBF files and nullify invalid dates when writing them.
      * ShapefileReader and ShapefileWriter
@@ -147,7 +148,7 @@ abstract class Shapefile
      */
     const OPTION_DBF_NULLIFY_INVALID_DATES = 'OPTION_DBF_NULLIFY_INVALID_DATES';
     const OPTION_DBF_NULLIFY_INVALID_DATES_DEFAULT = true;
-
+    
     /**
      * Returns dates as DateTime objects instead of ISO strings (YYYY-MM-DD).
      * ShapefileReader
@@ -155,7 +156,7 @@ abstract class Shapefile
      */
     const OPTION_DBF_RETURN_DATES_AS_OBJECTS = 'OPTION_DBF_RETURN_DATES_AS_OBJECTS';
     const OPTION_DBF_RETURN_DATES_AS_OBJECTS_DEFAULT = false;
-
+    
     /**
      * Deletes empty files after closing them.
      * This makes sense only when they were passed as resource handles or File instances.
@@ -164,7 +165,7 @@ abstract class Shapefile
      */
     const OPTION_DELETE_EMPTY_FILES = 'OPTION_DELETE_EMPTY_FILES';
     const OPTION_DELETE_EMPTY_FILES_DEFAULT = true;
-
+    
     /**
      * Enforces Geometries to have all data fields defined in Shapefile.
      * ShapefileWriter
@@ -172,7 +173,7 @@ abstract class Shapefile
      */
     const OPTION_ENFORCE_GEOMETRY_DATA_STRUCTURE = 'OPTION_ENFORCE_GEOMETRY_DATA_STRUCTURE';
     const OPTION_ENFORCE_GEOMETRY_DATA_STRUCTURE_DEFAULT = true;
-
+    
     /**
      * Defines behaviour with existing files with the same name.
      * Possible values:
@@ -184,7 +185,7 @@ abstract class Shapefile
      */
     const OPTION_EXISTING_FILES_MODE = 'OPTION_EXISTING_FILES_MODE';
     const OPTION_EXISTING_FILES_MODE_DEFAULT = self::MODE_PRESERVE;
-
+    
     /**
      * Reads all Polyline and Polygon Geometries as Multi.
      * ShapefileReader
@@ -192,7 +193,7 @@ abstract class Shapefile
      */
     const OPTION_FORCE_MULTIPART_GEOMETRIES = 'OPTION_FORCE_MULTIPART_GEOMETRIES';
     const OPTION_FORCE_MULTIPART_GEOMETRIES_DEFAULT = false;
-
+    
     /**
      * Ignores DBF file (useful to recover corrupted Shapefiles).
      * Data will not be available for geometries.
@@ -201,7 +202,7 @@ abstract class Shapefile
      */
     const OPTION_IGNORE_FILE_DBF = 'OPTION_IGNORE_FILE_DBF';
     const OPTION_IGNORE_FILE_DBF_DEFAULT = false;
-
+    
     /**
      * Ignores SHX file (useful to recover corrupted Shapefiles).
      * This might not always work as it relies on SHP record headers content lengths
@@ -212,7 +213,7 @@ abstract class Shapefile
      */
     const OPTION_IGNORE_FILE_SHX = 'OPTION_IGNORE_FILE_SHX';
     const OPTION_IGNORE_FILE_SHX_DEFAULT = false;
-
+    
     /**
      * Ignores Geometries bounding box found in Shapefile.
      * ShapefileReader
@@ -220,7 +221,7 @@ abstract class Shapefile
      */
     const OPTION_IGNORE_GEOMETRIES_BBOXES = 'OPTION_IGNORE_GEOMETRIES_BBOXES';
     const OPTION_IGNORE_GEOMETRIES_BBOXES_DEFAULT = false;
-
+    
     /**
      * Ignores bounding box found in Shapefile.
      * ShapefileReader
@@ -228,7 +229,7 @@ abstract class Shapefile
      */
     const OPTION_IGNORE_SHAPEFILE_BBOX = 'OPTION_IGNORE_SHAPEFILE_BBOX';
     const OPTION_IGNORE_SHAPEFILE_BBOX_DEFAULT = false;
-
+    
     /**
      * Defines action to perform on Polygons rings.
      * They should be closed but some software do not enforce that, creating uncompliant Shapefiles.
@@ -241,7 +242,7 @@ abstract class Shapefile
      */
     const OPTION_POLYGON_CLOSED_RINGS_ACTION = 'OPTION_POLYGON_CLOSED_RINGS_ACTION';
     const OPTION_POLYGON_CLOSED_RINGS_ACTION_DEFAULT = self::ACTION_CHECK;
-
+    
     /**
      * Allows Polygons orientation to be either clockwise or counterclockwise when reading Shapefiles.
      * Set to false to enforce strict ESRI Shapefile specs (clockwise outer rings and counterclockwise inner ones)
@@ -251,7 +252,7 @@ abstract class Shapefile
      */
     const OPTION_POLYGON_ORIENTATION_READING_AUTOSENSE = 'OPTION_POLYGON_ORIENTATION_READING_AUTOSENSE';
     const OPTION_POLYGON_ORIENTATION_READING_AUTOSENSE_DEFAULT = true;
-
+    
     /**
      * Forces a specific orientation for Polygons after reading them.
      * ESRI Shapefile specs establish clockwise orientation for outer rings and counterclockwise for inner ones,
@@ -266,7 +267,7 @@ abstract class Shapefile
      */
     const OPTION_POLYGON_OUTPUT_ORIENTATION = 'OPTION_POLYGON_OUTPUT_ORIENTATION';
     const OPTION_POLYGON_OUTPUT_ORIENTATION_DEFAULT = self::ORIENTATION_COUNTERCLOCKWISE;
-
+    
     /**
      * Suppresses M dimension.
      * ShapefileReader and ShapefileWriter
@@ -274,7 +275,7 @@ abstract class Shapefile
      */
     const OPTION_SUPPRESS_M = 'OPTION_SUPPRESS_M';
     const OPTION_SUPPRESS_M_DEFAULT = false;
-
+    
     /**
      * Suppresses Z dimension.
      * ShapefileReader and ShapefileWriter
@@ -282,250 +283,254 @@ abstract class Shapefile
      */
     const OPTION_SUPPRESS_Z = 'OPTION_SUPPRESS_Z';
     const OPTION_SUPPRESS_Z_DEFAULT = false;
-
-
+    
+    
+    
     /////////////////////////////// ERRORS ///////////////////////////////
     const ERR_UNDEFINED = 'ERR_UNDEFINED';
     const ERR_UNDEFINED_MESSAGE = "Undefined error.";
-
+    
     const ERR_FILE_MISSING = 'ERR_FILE_MISSING';
     const ERR_FILE_MISSING_MESSAGE = "A required file is missing";
-
+    
     const ERR_FILE_EXISTS = 'ERR_FILE_EXISTS';
     const ERR_FILE_EXISTS_MESSAGE = "Check if the file exists and is readable and/or writable";
-
+    
     const ERR_FILE_PERMISSIONS = 'ERR_FILE_PERMISSIONS';
     const ERR_FILE_PERMISSIONS_MESSAGE = "Check if the file is readable and/or writable in binary mode";
-
+    
     const ERR_FILE_PATH_NOT_VALID = 'ERR_FILE_PATH_NOT_VALID';
     const ERR_FILE_PATH_NOT_VALID_MESSAGE = "File path not valid";
-
+    
     const ERR_FILE_RESOURCE_NOT_VALID = 'ERR_FILE_RESOURCE_NOT_VALID';
     const ERR_FILE_RESOURCE_NOT_VALID_MESSAGE = "File pointer resource not valid. It must be a seekable stream";
-
+    
     const ERR_FILE_OPEN = 'ERR_FILE_OPEN';
     const ERR_FILE_OPEN_MESSAGE = "Unable to open file";
-
+    
     const ERR_FILE_READING = 'ERR_FILE_READING';
     const ERR_FILE_READING_MESSAGE = "Error during binary file reading";
-
+    
     const ERR_FILE_WRITING = 'ERR_FILE_WRITING';
     const ERR_FILE_WRITING_MESSAGE = "Error during binary file writing";
-
+    
     const ERR_SHP_TYPE_NOT_SUPPORTED = 'ERR_SHP_TYPE_NOT_SUPPORTED';
     const ERR_SHP_TYPE_NOT_SUPPORTED_MESSAGE = "Shape type not supported";
-
+    
     const ERR_SHP_TYPE_NOT_SET = 'ERR_SHP_TYPE_NOT_SET';
     const ERR_SHP_TYPE_NOT_SET_MESSAGE = "Shape type not set";
-
+    
     const ERR_SHP_TYPE_ALREADY_SET = 'ERR_SHP_TYPE_ALREADY_SET';
     const ERR_SHP_TYPE_ALREADY_SET_MESSAGE = "Shape type has already been set";
-
+    
     const ERR_SHP_GEOMETRY_TYPE_NOT_COMPATIBLE = 'ERR_SHP_GEOMETRY_TYPE_NOT_COMPATIBLE';
     const ERR_SHP_GEOMETRY_TYPE_NOT_COMPATIBLE_MESSAGE = "Geometry type must be compatible with Shapefile shape type";
-
+    
     const ERR_SHP_MISMATCHED_BBOX = 'ERR_SHP_MISMATCHED_BBOX';
     const ERR_SHP_MISMATCHED_BBOX_MESSAGE = "Bounding box must have the same dimensions as the Shapefile (2D, 3D or 4D)";
-
+    
     const ERR_SHP_FILE_ALREADY_INITIALIZED = 'ERR_SHP_FILE_ALREADY_INITIALIZED';
     const ERR_SHP_FILE_ALREADY_INITIALIZED_MESSAGE = "Cannot change Shapefile definition after it has been initialized with data";
-
+    
     const ERR_SHP_WRONG_RECORD_TYPE = 'ERR_SHP_WRONG_RECORD_TYPE';
     const ERR_SHP_WRONG_RECORD_TYPE_MESSAGE = "Wrong record shape type";
-
+    
     const ERR_DBF_FILE_NOT_VALID = 'ERR_DBF_FILE_NOT_VALID';
     const ERR_DBF_FILE_NOT_VALID_MESSAGE = "DBF file doesn't seem to be a valid dBase III or dBase IV format";
-
+    
     const ERR_DBF_MISMATCHED_FILE = 'ERR_DBF_MISMATCHED_FILE';
     const ERR_DBF_MISMATCHED_FILE_MESSAGE = "Mismatched DBF file. Number of records not corresponding to the SHP file";
-
+    
     const ERR_DBF_EOF_REACHED = 'ERR_DBF_EOF_REACHED';
     const ERR_DBF_EOF_REACHED_MESSAGE = "End of DBF file reached. Number of records not corresponding to the SHP file";
-
+    
     const ERR_DBF_MAX_FIELD_COUNT_REACHED = 'ERR_DBF_MAX_FIELD_COUNT_REACHED';
     const ERR_DBF_MAX_FIELD_COUNT_REACHED_MESSAGE = "Cannot add other fields, maximum number of fields in a DBF file reached";
-
+    
     const ERR_DBF_FIELD_NAME_NOT_VALID = 'ERR_DBF_FIELD_NAME_NOT_VALID';
     const ERR_DBF_FIELD_NAME_NOT_VALID_MESSAGE = "Too many field names conflicting";
-
+    
     const ERR_DBF_FIELD_TYPE_NOT_VALID = 'ERR_DBF_FIELD_TYPE_NOT_VALID';
     const ERR_DBF_FIELD_TYPE_NOT_VALID_MESSAGE = "Field type must be CHAR, DATE, LOGICAL, MEMO or NUMERIC";
-
+    
     const ERR_DBF_FIELD_SIZE_NOT_VALID = 'ERR_DBF_FIELD_SIZE_NOT_VALID';
     const ERR_DBF_FIELD_SIZE_NOT_VALID_MESSAGE = "Field size incorrect according to its type";
-
+    
     const ERR_DBF_FIELD_DECIMALS_NOT_VALID = 'ERR_DBF_FIELD_DECIMALS_NOT_VALID';
     const ERR_DBF_FIELD_DECIMALS_NOT_VALID_MESSAGE = "Field decimals incorrect according to its type";
-
+    
     const ERR_DBF_CHARSET_CONVERSION = 'ERR_DBF_CHARSET_CONVERSION';
     const ERR_DBF_CHARSET_CONVERSION_MESSAGE = "Error during conversion from provided DBF input charset to UTF-8";
-
+    
     const ERR_DBT_EOF_REACHED = 'ERR_DBT_EOF_REACHED';
     const ERR_DBT_EOF_REACHED_MESSAGE = "End of DBT file reached. File might be corrupted";
-
+    
     const ERR_GEOM_NOT_EMPTY = 'ERR_GEOM_NOT_EMPTY';
     const ERR_GEOM_NOT_EMPTY_MESSAGE = "Cannot reinitialize non-empty Geometry";
-
+    
     const ERR_GEOM_COORD_VALUE_NOT_VALID = 'ERR_GEOM_COORD_VALUE_NOT_VALID';
     const ERR_GEOM_COORD_VALUE_NOT_VALID_MESSAGE = "Invalid coordinate value";
-
+    
     const ERR_GEOM_MISMATCHED_DIMENSIONS = 'ERR_GEOM_MISMATCHED_DIMENSIONS';
     const ERR_GEOM_MISMATCHED_DIMENSIONS_MESSAGE = "All geometries in a collection must have the same dimensions (2D, 3D or 4D)";
-
+    
     const ERR_GEOM_MISMATCHED_BBOX = 'ERR_GEOM_MISMATCHED_BBOX';
     const ERR_GEOM_MISMATCHED_BBOX_MESSAGE = "Bounding box must have the same dimensions as the Geometry (2D, 3D or 4D)";
-
+    
     const ERR_GEOM_MISSING_FIELD = 'ERR_GEOM_MISSING_FIELD';
     const ERR_GEOM_MISSING_FIELD_MESSAGE = "Geometry is missing a field defined in the Shapefile";
-
+    
     const ERR_GEOM_POINT_NOT_VALID = 'ERR_GEOM_POINT_NOT_VALID';
     const ERR_GEOM_POINT_NOT_VALID_MESSAGE = "A Point can be either EMPTY or al least 2D";
-
+    
     const ERR_GEOM_POLYGON_OPEN_RING = 'ERR_GEOM_POLYGON_OPEN_RING';
     const ERR_GEOM_POLYGON_OPEN_RING_MESSAGE = "Polygons cannot contain open rings";
-
+    
     const ERR_GEOM_POLYGON_WRONG_ORIENTATION = 'ERR_GEOM_POLYGON_WRONG_ORIENTATION';
     const ERR_GEOM_POLYGON_WRONG_ORIENTATION_MESSAGE = "Polygon orientation not compliant with Shapefile specifications";
-
+    
     const ERR_GEOM_RING_AREA_TOO_SMALL = 'ERR_GEOM_RING_AREA_TOO_SMALL';
     const ERR_GEOM_RING_AREA_TOO_SMALL_MESSAGE = "Ring area too small. Cannot determine ring orientation";
-
+    
     const ERR_GEOM_RING_NOT_ENOUGH_VERTICES = 'ERR_GEOM_RING_NOT_ENOUGH_VERTICES';
     const ERR_GEOM_RING_NOT_ENOUGH_VERTICES_MESSAGE = "Not enough vertices. Cannot determine ring orientation";
-
+    
     const ERR_INPUT_RANDOM_ACCESS_UNAVAILABLE = 'ERR_INPUT_RANDOM_ACCESS_UNAVAILABLE';
     const ERR_INPUT_RANDOM_ACCESS_UNAVAILABLE_MESSAGE = "Cannot change current record without a valid SHX file";
-
+    
     const ERR_INPUT_RECORD_NOT_FOUND = 'ERR_INPUT_RECORD_NOT_FOUND';
     const ERR_INPUT_RECORD_NOT_FOUND_MESSAGE = "Record index not found (check the total number of records in the SHP file)";
-
+    
     const ERR_INPUT_FIELD_NOT_FOUND = 'ERR_INPUT_FIELD_NOT_FOUND';
     const ERR_INPUT_FIELD_NOT_FOUND_MESSAGE = "Field not found";
-
+    
     const ERR_INPUT_GEOMETRY_TYPE_NOT_VALID = 'ERR_INPUT_GEOMETRY_TYPE_NOT_VALID';
     const ERR_INPUT_GEOMETRY_TYPE_NOT_VALID_MESSAGE = "Geometry type not valid. Must be of specified type";
-
+    
     const ERR_INPUT_GEOMETRY_INDEX_NOT_VALID = 'ERR_INPUT_GEOMETRY_INDEX_NOT_VALID';
     const ERR_INPUT_GEOMETRY_INDEX_NOT_VALID_MESSAGE = "Geometry index not valid (check the total number of geometries in the collection)";
-
+    
     const ERR_INPUT_ARRAY_NOT_VALID = 'ERR_INPUT_ARRAY_NOT_VALID';
     const ERR_INPUT_ARRAY_NOT_VALID_MESSAGE = "Array not valid";
-
+    
     const ERR_INPUT_WKT_NOT_VALID = 'ERR_INPUT_WKT_NOT_VALID';
     const ERR_INPUT_WKT_NOT_VALID_MESSAGE = "WKT not valid";
-
+    
     const ERR_INPUT_GEOJSON_NOT_VALID = 'ERR_INPUT_GEOJSON_NOT_VALID';
     const ERR_INPUT_GEOJSON_NOT_VALID_MESSAGE = "GeoJSON not valid";
-
+    
     const ERR_INPUT_NUMERIC_VALUE_OVERFLOW = 'ERR_INPUT_NUMERIC_VALUE_OVERFLOW';
     const ERR_INPUT_NUMERIC_VALUE_OVERFLOW_MESSAGE = "Integer value overflows field size definition";
-
-
+    
+    
+        
     /////////////////////////////// DEPRECATED CONSTANTS ///////////////////////////////
     /**
      * @deprecated  This option was deprecated with v3.3.0 and will disappear in the next releases.
      *              Use OPTION_POLYGON_CLOSED_RINGS_ACTION instead.
      */
     const OPTION_ENFORCE_POLYGON_CLOSED_RINGS = 'OPTION_ENFORCE_POLYGON_CLOSED_RINGS';
-
+    
     /**
      * @deprecated  This option was deprecated with v3.3.0 and will disappear in the next releases.
      *              Use OPTION_POLYGON_OUTPUT_ORIENTATION instead.
      */
     const OPTION_INVERT_POLYGONS_ORIENTATION = 'OPTION_INVERT_POLYGONS_ORIENTATION';
-
+    
     /**
      * @deprecated  This constant was deprecated with v3.5.0 and will disappear in the next releases.
      *              Use ERR_FILE_RESOURCE_NOT_VALID instead.
      */
     const ERR_FILE_INVALID_RESOURCE = 'ERR_FILE_RESOURCE_NOT_VALID';
-
+    
     /**
      * @deprecated  This constant was deprecated with v3.3.0 and will disappear in the next releases.
      *              Use ERR_GEOM_RING_AREA_TOO_SMALL instead.
      */
     const ERR_GEOM_POLYGON_AREA_TOO_SMALL = 'ERR_GEOM_RING_AREA_TOO_SMALL';
-
+    
     /**
      * @deprecated  This constant was deprecated with v3.3.0 and will disappear in the next releases.
      *              Use ERR_GEOM_POLYGON_WRONG_ORIENTATION instead.
      */
     const ERR_GEOM_POLYGON_NOT_VALID = 'ERR_GEOM_POLYGON_WRONG_ORIENTATION';
-
-
+    
+    
+    
     /////////////////////////////// INTERNAL CONSTANTS ///////////////////////////////
     /** SHP files constants */
-    const SHP_FILE_CODE = 9994;
-    const SHP_HEADER_SIZE = 100;
+    const SHP_FILE_CODE         = 9994;
+    const SHP_HEADER_SIZE       = 100;
     const SHP_NO_DATA_THRESHOLD = -1e38;
-    const SHP_NO_DATA_VALUE = -1e40;
-    const SHP_REC_HEADER_SIZE = 8;
-    const SHP_VERSION = 1000;
+    const SHP_NO_DATA_VALUE     = -1e40;
+    const SHP_REC_HEADER_SIZE   = 8;
+    const SHP_VERSION           = 1000;
     /** SHX files constants */
-    const SHX_HEADER_SIZE = 100;
-    const SHX_RECORD_SIZE = 8;
+    const SHX_HEADER_SIZE       = 100;
+    const SHX_RECORD_SIZE       = 8;
     /** DBF files constants */
-    const DBF_BLANK = 0x20;
-    const DBF_DEFAULT_CHARSET = 'ISO-8859-1';
-    const DBF_DELETED_MARKER = 0x2a;
-    const DBF_EOF_MARKER = 0x1a;
-    const DBF_FIELD_TERMINATOR = 0x0d;
-    const DBF_MAX_FIELD_COUNT = 255;
-    const DBF_VALUE_MASK_FALSE = 'FfNn0';
-    const DBF_VALUE_MASK_TRUE = 'TtYy1';
-    const DBF_VALUE_FALSE = 'F';
-    const DBF_VALUE_NULL = '?';
-    const DBF_VALUE_TRUE = 'T';
-    const DBF_VERSION = 0x03;
-    const DBF_VERSION_WITH_DBT = 0x83;
+    const DBF_BLANK             = 0x20;
+    const DBF_DEFAULT_CHARSET   = 'ISO-8859-1';
+    const DBF_DELETED_MARKER    = 0x2a;
+    const DBF_EOF_MARKER        = 0x1a;
+    const DBF_FIELD_TERMINATOR  = 0x0d;
+    const DBF_MAX_FIELD_COUNT   = 255;
+    const DBF_VALUE_MASK_FALSE  = 'FfNn0';
+    const DBF_VALUE_MASK_TRUE   = 'TtYy1';
+    const DBF_VALUE_FALSE       = 'F';
+    const DBF_VALUE_NULL        = '?';
+    const DBF_VALUE_TRUE        = 'T';
+    const DBF_VERSION           = 0x03;
+    const DBF_VERSION_WITH_DBT  = 0x83;
     /** DBT files constants */
-    const DBT_BLOCK_SIZE = 512;
-    const DBT_FIELD_TERMINATOR = 0x1a;
-
+    const DBT_BLOCK_SIZE        = 512;
+    const DBT_FIELD_TERMINATOR  = 0x1a;
+    
     /** Shape types text description */
     public static $shape_types = [
-        self::SHAPE_TYPE_NULL => 'Null Shape',
-        self::SHAPE_TYPE_POINT => 'Point',
-        self::SHAPE_TYPE_POLYLINE => 'PolyLine',
-        self::SHAPE_TYPE_POLYGON => 'Polygon',
-        self::SHAPE_TYPE_MULTIPOINT => 'MultiPoint',
-        self::SHAPE_TYPE_POINTZ => 'PointZ',
-        self::SHAPE_TYPE_POLYLINEZ => 'PolyLineZ',
-        self::SHAPE_TYPE_POLYGONZ => 'PolygonZ',
-        self::SHAPE_TYPE_MULTIPOINTZ => 'MultiPointZ',
-        self::SHAPE_TYPE_POINTM => 'PointM',
-        self::SHAPE_TYPE_POLYLINEM => 'PolyLineM',
-        self::SHAPE_TYPE_POLYGONM => 'PolygonM',
-        self::SHAPE_TYPE_MULTIPOINTM => 'MultiPointM',
+        self::SHAPE_TYPE_NULL           => 'Null Shape',
+        self::SHAPE_TYPE_POINT          => 'Point',
+        self::SHAPE_TYPE_POLYLINE       => 'PolyLine',
+        self::SHAPE_TYPE_POLYGON        => 'Polygon',
+        self::SHAPE_TYPE_MULTIPOINT     => 'MultiPoint',
+        self::SHAPE_TYPE_POINTZ         => 'PointZ',
+        self::SHAPE_TYPE_POLYLINEZ      => 'PolyLineZ',
+        self::SHAPE_TYPE_POLYGONZ       => 'PolygonZ',
+        self::SHAPE_TYPE_MULTIPOINTZ    => 'MultiPointZ',
+        self::SHAPE_TYPE_POINTM         => 'PointM',
+        self::SHAPE_TYPE_POLYLINEM      => 'PolyLineM',
+        self::SHAPE_TYPE_POLYGONM       => 'PolygonM',
+        self::SHAPE_TYPE_MULTIPOINTM    => 'MultiPointM',
     ];
-
-
+    
+    
+    
     /////////////////////////////// PRIVATE VARIABLES ///////////////////////////////
     /**
      * @var int|null    Shapefile type.
      */
     private $shape_type = null;
-
+    
     /**
      * @var array|null      Custom bounding box set with setCustomBoundingBox() method.
      */
     private $custom_bounding_box = null;
-
+    
     /**
      * @var array|null      Computed bounding box.
      */
     private $computed_bounding_box = null;
-
+    
     /**
      * @var string|null     PRJ well-known-text.
      */
     private $prj = null;
-
+    
     /**
      * @var string|null     DBF charset.
      */
     private $charset = null;
-
+    
     /**
      * @var array   Fields definition.
      *              Every field is represented by an array with the following structure:
@@ -536,42 +541,42 @@ abstract class Shapefile
      *              ]
      */
     private $fields = [];
-
+    
     /**
      * @var array   Array of File instances.
      */
     private $files = [];
-
+    
     /**
      * @var array   Array of canonicalized absolute pathnames of open files.
      *              It will be populated only if files are NOT passed as stream resources.
      */
     private $filenames = [];
-
+    
     /**
      * @var array   Options.
      */
     private $options = [];
-
+    
     /**
      * @var int     Total number of records.
      */
     private $tot_records;
-
-
+    
+    
     /**
      * @var bool|null   Flag to store whether the machine is big endian or not.
      */
     private $flag_big_endian_machine = null;
-
+    
     /**
      * @var bool    Flag representing whether the Shapefile has been initialized with any Geometry or not.
      */
     private $flag_initialized = false;
-
-
+    
+    
+    
     /////////////////////////////// PUBLIC ///////////////////////////////
-
     /**
      * Checks if Shapefile is of type Z.
      *
@@ -582,7 +587,7 @@ abstract class Shapefile
         $shape_type = $this->getShapeType(Shapefile::FORMAT_INT);
         return $shape_type > 10 && $shape_type < 20;
     }
-
+    
     /**
      * Checks if Shapefile is of type M.
      *
@@ -592,12 +597,12 @@ abstract class Shapefile
     {
         return $this->getShapeType(Shapefile::FORMAT_INT) > 10;
     }
-
-
+    
+    
     /**
      * Gets shape type either as integer or string.
      *
-     * @param int $format Optional desired output format.
+     * @param   int     $format     Optional desired output format.
      *                              It can be on of the following:
      *                              - Shapefile::FORMAT_INT [default]
      *                              - Shapefile::FORMAT_STR
@@ -615,8 +620,8 @@ abstract class Shapefile
             return $this->shape_type;
         }
     }
-
-
+    
+    
     /**
      * Gets Shapefile bounding box.
      *
@@ -626,8 +631,8 @@ abstract class Shapefile
     {
         return $this->custom_bounding_box ?: $this->computed_bounding_box;
     }
-
-
+    
+    
     /**
      * Gets PRJ well-known-text.
      *
@@ -637,8 +642,8 @@ abstract class Shapefile
     {
         return $this->prj;
     }
-
-
+    
+    
     /**
      * Gets DBF charset.
      *
@@ -648,11 +653,11 @@ abstract class Shapefile
     {
         return $this->charset ?: Shapefile::DBF_DEFAULT_CHARSET;
     }
-
+    
     /**
      * Sets or resets DBF charset.
      *
-     * @param mixed $charset Name of the charset.
+     * @param   mixed   $charset    Name of the charset.
      *                              Pass a falsy value (eg. false or "") to reset it to default.
      *
      * @return  self    Returns $this to provide a fluent interface.
@@ -662,8 +667,8 @@ abstract class Shapefile
         $this->charset = $charset ?: Shapefile::DBF_DEFAULT_CHARSET;
         return $this;
     }
-
-
+    
+    
     /**
      * Gets all fields names.
      *
@@ -673,7 +678,7 @@ abstract class Shapefile
     {
         return array_keys($this->fields);
     }
-
+    
     /**
      * Gets all fields definitions.
      *
@@ -683,11 +688,11 @@ abstract class Shapefile
     {
         return $this->fields;
     }
-
+    
     /**
      * Gets a field type.
      *
-     * @param string $name Name of the field.
+     * @param   string  $name   Name of the field.
      *
      * @return  string
      */
@@ -695,11 +700,11 @@ abstract class Shapefile
     {
         return $this->getField($name)['type'];
     }
-
+    
     /**
      * Gets a field size.
      *
-     * @param string $name Name of the field.
+     * @param   string  $name   Name of the field.
      *
      * @return  int
      */
@@ -707,11 +712,11 @@ abstract class Shapefile
     {
         return $this->getField($name)['size'];
     }
-
+    
     /**
      * Gets a field decimals.
      *
-     * @param string $name Name of the field.
+     * @param   string  $name   Name of the field.
      *
      * @return  int
      */
@@ -719,7 +724,7 @@ abstract class Shapefile
     {
         return $this->getField($name)['decimals'];
     }
-
+    
     /**
      * Gets a complete field definition.
      *
@@ -730,7 +735,7 @@ abstract class Shapefile
      *      "decimals"  => int
      *  ]
      *
-     * @param string $name Name of the field.
+     * @param   string  $name   Name of the field.
      *
      * @return  array
      */
@@ -742,8 +747,8 @@ abstract class Shapefile
         }
         return $this->fields[$name];
     }
-
-
+    
+    
     /**
      * Gets total number of records in SHP and DBF files.
      *
@@ -753,19 +758,18 @@ abstract class Shapefile
     {
         return $this->tot_records;
     }
-
-
-
+    
+    
+    
     /////////////////////////////// PROTECTED ///////////////////////////////
-
     /**
      * Opens files with binary read or write access.
      *
      * Filenames are mapped here because files are closed in destructors and working directory might be different!
      *
-     * @param string|array $files Path to SHP file / Array of paths / Array of resource handles / Array of File instances.
-     * @param bool $write_access Access type: false = read; true = write.
-     * @param array $ignored_files Optional map of files to ignore [filetype => bool].
+     * @param   string|array    $files          Path to SHP file / Array of paths / Array of resource handles / Array of File instances.
+     * @param   bool            $write_access   Access type: false = read; true = write.
+     * @param   array           $ignored_files  Optional map of files to ignore [filetype => bool].
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -783,13 +787,13 @@ abstract class Shapefile
                 Shapefile::FILE_CPG => $basename . '.' . Shapefile::FILE_CPG,
             ];
         }
-
+        
         // Ignored files
         $ignored_files = $ignored_files + [
-                Shapefile::FILE_SHX => false,
-                Shapefile::FILE_DBF => false,
-            ];
-
+            Shapefile::FILE_SHX => false,
+            Shapefile::FILE_DBF => false,
+        ];
+        
         // Make sure required files are specified
         foreach (
             [
@@ -802,10 +806,10 @@ abstract class Shapefile
                 throw new ShapefileException(Shapefile::ERR_FILE_MISSING, strtoupper($type));
             }
         }
-
-
+        
+        
         $this->filenames = [];
-        if (array_reduce($files, function ($ret, $item) {
+        if (array_reduce($files, function($ret, $item) {
             return $ret && $item instanceof File;
         }, true)) {
             // File instances
@@ -814,7 +818,7 @@ abstract class Shapefile
                     if ((!$write_access && !$File->isReadable()) || ($write_access && !$File->isWritable())) {
                         throw new ShapefileException(Shapefile::ERR_FILE_PERMISSIONS, strtoupper($type));
                     }
-                    $this->files[$type] = $File;
+                    $this->files[$type] = $File; 
                 }
             }
         } elseif ($files === array_filter($files, 'is_resource')) {
@@ -841,15 +845,15 @@ abstract class Shapefile
                 ] as $type => $required
             ) {
                 if (isset($files[$type]) && (!isset($ignored_files[$type]) || !$ignored_files[$type])) {
-                    if (!is_string($files[$type])) {
+                    if (!is_string($files[$type])){
                         throw new ShapefileException(Shapefile::ERR_FILE_PATH_NOT_VALID, strtoupper($type));
                     }
                     if (
-                        (!$write_access && is_readable($files[$type]) && is_file($files[$type]))
-                        || ($write_access && is_writable(dirname($files[$type])) && (!file_exists($files[$type]) || (is_file($files[$type]) && is_writable($files[$type]) && (($this->getOption(Shapefile::OPTION_EXISTING_FILES_MODE) === Shapefile::MODE_APPEND && is_readable($files[$type])) || ($this->getOption(Shapefile::OPTION_EXISTING_FILES_MODE) === Shapefile::MODE_OVERWRITE)))))
+                            (!$write_access && is_readable($files[$type]) && is_file($files[$type]))
+                        ||  ($write_access && is_writable(dirname($files[$type])) && (!file_exists($files[$type]) || (is_file($files[$type]) && is_writable($files[$type]) && (($this->getOption(Shapefile::OPTION_EXISTING_FILES_MODE) === Shapefile::MODE_APPEND && is_readable($files[$type])) || ($this->getOption(Shapefile::OPTION_EXISTING_FILES_MODE) === Shapefile::MODE_OVERWRITE)))))
                     ) {
                         try {
-                            $this->files[$type] = new StreamResourceFile($files[$type], $write_access);
+                            $this->files[$type]     = new StreamResourceFile($files[$type], $write_access);
                             $this->filenames[$type] = $this->files[$type]->getFilepath();
                         } catch (ShapefileException $e) {
                             throw new ShapefileException($e->getErrorType(), $files[$type]);
@@ -860,15 +864,15 @@ abstract class Shapefile
                 }
             }
         }
-
+        
         // Set files pointers to start
         foreach ($this->files as $File) {
             $File->setPointer(0);
         }
-
+        
         return $this;
     }
-
+    
     /**
      * Closes all open files.
      * Actually, this just destroys the reference to File instance, letting it handle the situation.
@@ -882,12 +886,12 @@ abstract class Shapefile
         }
         return $this;
     }
-
+    
     /**
      * Truncates file to given length.
      *
-     * @param string $file_type File type.
-     * @param int $size Optional size to truncate to.
+     * @param   string  $file_type  File type.
+     * @param   int     $size       Optional size to truncate to.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -896,11 +900,11 @@ abstract class Shapefile
         $this->files[$file_type]->truncate($size);
         return $this;
     }
-
+    
     /**
      * Checks if file type has been opened.
      *
-     * @param string $file_type File type (member of $this->files array).
+     * @param   string  $file_type  File type (member of $this->files array).
      *
      * @return  bool
      */
@@ -908,7 +912,7 @@ abstract class Shapefile
     {
         return isset($this->files[$file_type]);
     }
-
+    
     /**
      * Gets an array of the open files.
      *
@@ -918,7 +922,7 @@ abstract class Shapefile
     {
         return $this->files;
     }
-
+    
     /**
      * Gets an array of canonicalized absolute pathnames.
      * If files were passed as stream resource handles or File instances, an empty array is returned.
@@ -929,11 +933,11 @@ abstract class Shapefile
     {
         return $this->filenames;
     }
-
+    
     /**
      * Gets file size.
      *
-     * @param string $file_type File type (member of $this->files array).
+     * @param   string  $file_type  File type (member of $this->files array).
      *
      * @return  int
      */
@@ -941,11 +945,11 @@ abstract class Shapefile
     {
         return $this->files[$file_type]->getSize();
     }
-
+    
     /**
      * Gets file current pointer position.
      *
-     * @param string $file_type File type (member of $this->files array).
+     * @param   string  $file_type  File type (member of $this->files array).
      *
      * @return  int
      */
@@ -953,12 +957,12 @@ abstract class Shapefile
     {
         return $this->files[$file_type]->getPointer();
     }
-
+    
     /**
      * Sets file pointer to specified position.
      *
-     * @param string $file_type File type (member of $this->files array).
-     * @param int $position The position to set the pointer to.
+     * @param   string  $file_type  File type (member of $this->files array).
+     * @param   int     $position   The position to set the pointer to.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -967,11 +971,11 @@ abstract class Shapefile
         $this->files[$file_type]->setPointer($position);
         return $this;
     }
-
+    
     /**
      * Resets file pointer position to its end.
      *
-     * @param string $file_type File type (member of $this->files array).
+     * @param   string  $file_type  File type (member of $this->files array).
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -980,12 +984,12 @@ abstract class Shapefile
         $this->files[$file_type]->resetPointer();
         return $this;
     }
-
+    
     /**
      * Increases file pointer position of specified offset.
      *
-     * @param string $file_type File type (member of $this->files array).
-     * @param int $offset The offset to move the pointer for.
+     * @param   string  $file_type  File type (member of $this->files array).
+     * @param   int     $offset     The offset to move the pointer for.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -994,12 +998,12 @@ abstract class Shapefile
         $this->files[$file_type]->setOffset($offset);
         return $this;
     }
-
+    
     /**
      * Reads data from file.
      *
-     * @param string $file_type File type.
-     * @param int $length Number of bytes to read.
+     * @param   string  $file_type      File type.
+     * @param   int     $length         Number of bytes to read.
      *
      * @return  string
      */
@@ -1011,12 +1015,12 @@ abstract class Shapefile
         }
         return $ret;
     }
-
+    
     /**
      * Writes binary string packed data to file.
      *
-     * @param string $file_type File type.
-     * @param string $data Binary string packed data to write.
+     * @param   string  $file_type      File type.
+     * @param   string  $data           Binary string packed data to write.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -1027,7 +1031,7 @@ abstract class Shapefile
         }
         return $this;
     }
-
+    
     /**
      * Checks if machine is big endian.
      *
@@ -1040,13 +1044,13 @@ abstract class Shapefile
         }
         return $this->flag_big_endian_machine;
     }
-
-
+    
+    
     /**
      * Initializes options with default and user-provided values.
      *
-     * @param array $options_list Array of options to initialize.
-     * @param array $user_values User-provided options values.
+     * @param   array   $options_list   Array of options to initialize.
+     * @param   array   $user_values    User-provided options values.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -1059,38 +1063,38 @@ abstract class Shapefile
             Shapefile::OPTION_SUPPRESS_M,
             Shapefile::OPTION_SUPPRESS_Z,
         ]));
-
+        
         // Defaults
         $defaults = [];
         foreach ($options_list as $option) {
             $defaults[$option] = constant('Shapefile\Shapefile::' . $option . '_DEFAULT');
         }
-
+        
         // Filter custom options
         $user_values = array_intersect_key(array_change_key_case($user_values, CASE_UPPER), $defaults);
-
+        
         // Initialize option array
         $this->options = $user_values + $defaults;
-
+        
         // Use only the first character of OPTION_DBF_NULL_PADDING_CHAR if it's set and is not false or empty
         $k = Shapefile::OPTION_DBF_NULL_PADDING_CHAR;
         if (array_key_exists($k, $this->options)) {
             $this->options[$k] = ($this->options[$k] === false || $this->options[$k] === null || $this->options[$k] === '') ? null : substr($this->options[$k], 0, 1);
         }
-
+        
         // Parse OPTION_DBF_IGNORED_FIELDS
         $k = Shapefile::OPTION_DBF_IGNORED_FIELDS;
         if (array_key_exists($k, $this->options)) {
             $this->options[$k] = is_array($this->options[$k]) ? array_map([$this, 'normalizeDBFFieldNameCase'], $this->options[$k]) : [];
         }
-
+        
         return $this;
     }
-
+    
     /**
      * Gets option value.
      *
-     * @param string $option Name of the option.
+     * @param   string  $option     Name of the option.
      *
      * @return  string
      */
@@ -1098,13 +1102,13 @@ abstract class Shapefile
     {
         return $this->options[$option];
     }
-
-
+    
+    
     /**
      * Sets shape type.
      * It can be called just once for an instance of the class.
      *
-     * @param int $type Shape type. It can be on of the following:
+     * @param   int     $type   Shape type. It can be on of the following:
      *                          - Shapefile::SHAPE_TYPE_NULL
      *                          - Shapefile::SHAPE_TYPE_POINT
      *                          - Shapefile::SHAPE_TYPE_POLYLINE
@@ -1132,7 +1136,7 @@ abstract class Shapefile
         $this->shape_type = $type;
         return $this;
     }
-
+    
     /**
      * Gets Shapefile base type, regardless of Z and M dimensions.
      *
@@ -1142,13 +1146,13 @@ abstract class Shapefile
     {
         return $this->getShapeType(Shapefile::FORMAT_INT) % 10;
     }
-
-
+    
+    
     /**
      * Overwrites computed bounding box for the Shapefile.
      * No check is carried out except a formal compliance of dimensions.
      *
-     * @param array $bounding_box Associative array with the xmin, xmax, ymin, ymax and optional zmin, zmax, mmin, mmax values.
+     * @param   array   $bounding_box   Associative array with the xmin, xmax, ymin, ymax and optional zmin, zmax, mmin, mmax values.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -1159,12 +1163,12 @@ abstract class Shapefile
         }
         return $this;
     }
-
+    
     /**
      * Sets a custom bounding box for the Shapefile.
      * No check is carried out except a formal compliance of dimensions.
      *
-     * @param array $bounding_box Associative array with the xmin, xmax, ymin, ymax and optional zmin, zmax, mmin, mmax values.
+     * @param   array   $bounding_box   Associative array with the xmin, xmax, ymin, ymax and optional zmin, zmax, mmin, mmax values.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -1173,7 +1177,7 @@ abstract class Shapefile
         $this->custom_bounding_box = $this->sanitizeBoundingBox($bounding_box);
         return $this;
     }
-
+    
     /**
      * Resets custom bounding box for the Shapefile.
      * It will cause getBoundingBox() method to return a normally computed bbox instead of a custom one.
@@ -1185,12 +1189,12 @@ abstract class Shapefile
         $this->custom_bounding_box = null;
         return $this;
     }
-
-
+    
+    
     /**
      * Sets PRJ well-known-text.
      *
-     * @param string $prj PRJ well-known-text.
+     * @param   string  $prj    PRJ well-known-text.
      *                          Pass a falsy value (eg. false or "") to delete it.
      *
      * @return  self    Returns $this to provide a fluent interface.
@@ -1200,12 +1204,12 @@ abstract class Shapefile
         $this->prj = $prj ?: null;
         return $this;
     }
-
-
+    
+    
     /**
      * Sets current total number of records.
      *
-     * @param int $tot_records Total number of records currently in the files.
+     * @param   int     $tot_records    Total number of records currently in the files.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -1214,7 +1218,7 @@ abstract class Shapefile
         $this->tot_records = $tot_records;
         return $this;
     }
-
+    
     /**
      * Gets the state of the initialized flag.
      *
@@ -1224,11 +1228,11 @@ abstract class Shapefile
     {
         return $this->flag_initialized;
     }
-
+    
     /**
      * Sets the state of the initialized flag.
      *
-     * @param bool $value
+     * @param   bool    $value
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -1237,23 +1241,23 @@ abstract class Shapefile
         $this->flag_initialized = $value;
         return $this;
     }
-
-
+    
+    
     /**
      * Adds a field to the shapefile definition.
      * Returns the effective field name after eventual sanitization.
      *
-     * @param string $name Name of the field. Invalid names will be sanitized
+     * @param   string  $name               Name of the field. Invalid names will be sanitized
      *                                      (maximum 10 characters, only letters, numbers and underscores are allowed).
-     * @param string $type Type of the field. It can be on of the following:
+     * @param   string  $type               Type of the field. It can be on of the following:
      *                                      - Shapefile::DBF_TYPE_CHAR
      *                                      - Shapefile::DBF_TYPE_DATE
      *                                      - Shapefile::DBF_TYPE_LOGICAL
      *                                      - Shapefile::DBF_TYPE_MEMO
      *                                      - Shapefile::DBF_TYPE_NUMERIC
      *                                      - Shapefile::DBF_TYPE_FLOAT
-     * @param int $size Lenght of the field, depending on the type.
-     * @param int $decimals Optional number of decimal digits for numeric type.
+     * @param   int     $size               Lenght of the field, depending on the type.
+     * @param   int     $decimals           Optional number of decimal digits for numeric type.
      *
      * @return  string
      */
@@ -1267,63 +1271,63 @@ abstract class Shapefile
         if (count($this->fields) >= Shapefile::DBF_MAX_FIELD_COUNT) {
             throw new ShapefileException(Shapefile::ERR_DBF_MAX_FIELD_COUNT_REACHED, Shapefile::DBF_MAX_FIELD_COUNT);
         }
-
+        
         // Sanitize name and normalize case
         $name = $this->normalizeDBFFieldNameCase($this->sanitizeDBFFieldName($name));
-
+        
         // Check type
         if (
-            $type !== Shapefile::DBF_TYPE_CHAR
-            && $type !== Shapefile::DBF_TYPE_DATE
-            && $type !== Shapefile::DBF_TYPE_LOGICAL
-            && $type !== Shapefile::DBF_TYPE_MEMO
-            && $type !== Shapefile::DBF_TYPE_NUMERIC
-            && $type !== Shapefile::DBF_TYPE_FLOAT
+                $type !== Shapefile::DBF_TYPE_CHAR
+            &&  $type !== Shapefile::DBF_TYPE_DATE
+            &&  $type !== Shapefile::DBF_TYPE_LOGICAL
+            &&  $type !== Shapefile::DBF_TYPE_MEMO
+            &&  $type !== Shapefile::DBF_TYPE_NUMERIC
+            &&  $type !== Shapefile::DBF_TYPE_FLOAT
         ) {
             throw new ShapefileException(Shapefile::ERR_DBF_FIELD_TYPE_NOT_VALID, "$name - $type");
         }
-
+        
         // Check size
-        $size = intval($size);
-        $max_size = $this->getOption(Shapefile::OPTION_DBF_ALLOW_FIELD_SIZE_255) ? 255 : 254;
+        $size       = intval($size);
+        $max_size   = $this->getOption(Shapefile::OPTION_DBF_ALLOW_FIELD_SIZE_255) ? 255 : 254;
         if (
-            ($size < 1)
-            || ($type == Shapefile::DBF_TYPE_CHAR && $size > $max_size)
-            || ($type == Shapefile::DBF_TYPE_DATE && $size !== 8)
-            || ($type == Shapefile::DBF_TYPE_LOGICAL && $size !== 1)
-            || ($type == Shapefile::DBF_TYPE_MEMO && $size !== 10)
-            || ($type == Shapefile::DBF_TYPE_NUMERIC && $size > $max_size)
-            || ($type == Shapefile::DBF_TYPE_FLOAT && $size > $max_size)
+                ($size < 1)
+            ||  ($type == Shapefile::DBF_TYPE_CHAR && $size > $max_size)
+            ||  ($type == Shapefile::DBF_TYPE_DATE && $size !== 8)
+            ||  ($type == Shapefile::DBF_TYPE_LOGICAL && $size !== 1)
+            ||  ($type == Shapefile::DBF_TYPE_MEMO && $size !== 10)
+            ||  ($type == Shapefile::DBF_TYPE_NUMERIC && $size > $max_size)
+            ||  ($type == Shapefile::DBF_TYPE_FLOAT && $size > $max_size)
         ) {
             throw new ShapefileException(Shapefile::ERR_DBF_FIELD_SIZE_NOT_VALID, "$name - $type - $size");
         }
-
+        
         // Minimal decimal formal check
         $decimals = intval($decimals);
         if (
-            ($type != Shapefile::DBF_TYPE_NUMERIC && $type != Shapefile::DBF_TYPE_FLOAT && $decimals !== 0)
-            || ($type == Shapefile::DBF_TYPE_FLOAT && $decimals === 0)
-            || ($decimals < 0)
-            || ($decimals > 0 && $size - 1 <= $decimals)
+                ($type != Shapefile::DBF_TYPE_NUMERIC && $type != Shapefile::DBF_TYPE_FLOAT && $decimals !== 0)
+            ||  ($type == Shapefile::DBF_TYPE_FLOAT && $decimals === 0)
+            ||  ($decimals < 0)
+            ||  ($decimals > 0 && $size - 1 <= $decimals)
         ) {
             throw new ShapefileException(Shapefile::ERR_DBF_FIELD_DECIMALS_NOT_VALID, "$name - $type - $decimals");
         }
-
+        
         // Add field
         $this->fields[$name] = [
-            'type' => $type,
-            'size' => $size,
-            'decimals' => $decimals,
+            'type'      => $type,
+            'size'      => $size,
+            'decimals'  => $decimals,
         ];
-
+        
         return $name;
     }
-
-
+    
+    
     /**
      * Normalize field name case according to OPTION_DBF_FORCE_ALL_CAPS status.
      *
-     * @param string $input Field name to be case-normalized.
+     * @param   string  $input      Field name to be case-normalized.
      *
      * @return  string
      */
@@ -1331,14 +1335,14 @@ abstract class Shapefile
     {
         return $this->getOption(Shapefile::OPTION_DBF_FORCE_ALL_CAPS) ? strtoupper($input) : $input;
     }
-
-
+    
+    
     /**
      * Pairs a Geometry with the Shapefile.
      * It enforces the Geometry type and computes Shapefile bounding box.
      * After that the Shapefile will be considered as "initialized" and no changes will be allowd to its structure.
      *
-     * @param \Shapefile\Geometry\Geometry $Geometry Geometry to pair with.
+     * @param   \Shapefile\Geometry\Geometry    $Geometry   Geometry to pair with.
      *
      * @return  self    Returns $this to provide a fluent interface.
      */
@@ -1346,13 +1350,13 @@ abstract class Shapefile
     {
         // Geometry type
         if (
-            $this->getBasetype() !== $Geometry->getSHPBasetype()
-            || (!$Geometry->isEmpty() && $Geometry->isZ() !== $this->isZ() && !$this->getOption(Shapefile::OPTION_SUPPRESS_Z))
-            || (!$Geometry->isEmpty() && $Geometry->isM() !== $this->isM() && !$this->getOption(Shapefile::OPTION_SUPPRESS_M))
+                $this->getBasetype() !== $Geometry->getSHPBasetype()
+            ||  (!$Geometry->isEmpty() && $Geometry->isZ() !== $this->isZ() && !$this->getOption(Shapefile::OPTION_SUPPRESS_Z))
+            ||  (!$Geometry->isEmpty() && $Geometry->isM() !== $this->isM() && !$this->getOption(Shapefile::OPTION_SUPPRESS_M))
         ) {
             throw new ShapefileException(Shapefile::ERR_SHP_GEOMETRY_TYPE_NOT_COMPATIBLE, $this->getShapeType(Shapefile::FORMAT_INT) . ' - ' . $this->getShapeType(Shapefile::FORMAT_STR));
         }
-
+        
         // Bounding box
         $bbox = $Geometry->getBoundingBox();
         if (!$this->computed_bounding_box && $bbox) {
@@ -1393,21 +1397,20 @@ abstract class Shapefile
                 }
             }
         }
-
+        
         // Mark Shapefile as initialized
         $this->setFlagInitialized(true);
-
+        
         return $this;
     }
-
-
-
+    
+    
+    
     /////////////////////////////// PRIVATE ///////////////////////////////
-
     /**
      * Checks formal compliance of a bounding box dimensions.
      *
-     * @param array $bounding_box Associative array with the xmin, xmax, ymin, ymax and optional zmin, zmax, mmin, mmax values.
+     * @param   array   $bounding_box   Associative array with the xmin, xmax, ymin, ymax and optional zmin, zmax, mmin, mmax values.
      */
     private function sanitizeBoundingBox($bounding_box)
     {
@@ -1418,7 +1421,7 @@ abstract class Shapefile
         if ($this->getOption(Shapefile::OPTION_SUPPRESS_M)) {
             unset($bounding_box['mmin'], $bounding_box['mmax']);
         }
-
+        
         if (
             !isset($bounding_box['xmin'], $bounding_box['xmax'], $bounding_box['ymin'], $bounding_box['ymax'])
             || (
@@ -1432,18 +1435,18 @@ abstract class Shapefile
         ) {
             throw new ShapefileException(Shapefile::ERR_SHP_MISMATCHED_BBOX);
         }
-
+        
         return $bounding_box;
     }
-
-
+    
+    
     /**
      * Returns a valid name for a DBF field.
      *
      * Only letters, numbers and underscores are allowed, everything else is converted to underscores.
      * Field names get truncated to 10 characters and conflicting ones are truncated to 8 characters adding a number from 1 to 99.
      *
-     * @param string $input Raw name to be sanitized.
+     * @param   string  $input      Raw name to be sanitized.
      *
      * @return  string
      */
@@ -1452,7 +1455,7 @@ abstract class Shapefile
         if ($input === '') {
             return $input;
         }
-        $ret = substr(preg_replace('/[^a-zA-Z0-9\x00-\xff]/', '_', $input), 0, 10);
+        $ret        = substr(preg_replace('/[^a-zA-Z0-9\x00-\xff]/', '_', $input), 0, 10);
         $fieldnames = array_fill_keys(array_keys(array_change_key_case($this->fields, CASE_UPPER)), true);
         if (isset($fieldnames[strtoupper($ret)])) {
             $ret = substr($ret, 0, 8) . '_1';
