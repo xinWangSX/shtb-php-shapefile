@@ -1456,7 +1456,7 @@ abstract class Shapefile
             return $input;
         }
         
-        $ret        = substr(preg_replace('/[^a-zA-Z0-9]/', '_', $input), 0, 10);
+        $ret        = substr(preg_replace('/[^a-zA-Z0-9\x00-\xff]/', '_', $input), 0, 10);
         $fieldnames = array_fill_keys(array_keys(array_change_key_case($this->fields, CASE_UPPER)), true);
         if (isset($fieldnames[strtoupper($ret)])) {
             $ret = substr($ret, 0, 8) . '_1';
