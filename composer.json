@@ -6,7 +6,8 @@
     "license": "MIT",
     "authors": [
         {
-            "role": "Developer"
+            "role": "Developer",
+            "name": ""
         }
     ],
     "require": {
